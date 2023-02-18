@@ -1,8 +1,8 @@
 {
-  "name": "solid-starter",
-  "version": "0.5.0",
+  "name": "entertainment-web-app",
+  "version": "0.0.1",
   "author": "Andre Grossi",
-  "description": "SolidJS Starter Template with ESLint + Prettier",
+  "description": "Solution for Frontend Mentor's Entertainment Web App with SolidJS + TailwindCSS",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -23,10 +23,10 @@
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
-    "@hope-ui/solid": "^0.6.7",
-    "@stitches/core": "^1.2.8",
-    "solid-icons": "^1.0.1",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
     "solid-js": "^1.4.7",
-    "solid-transition-group": "^0.0.10"
+    "solid-transition-group": "^0.0.10",
+    "tailwindcss": "^3.2.7"
   }
 }
