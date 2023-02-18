@@ -1,0 +1,32 @@
+{
+  "name": "solid-starter",
+  "version": "0.5.0",
+  "author": "Andre Grossi",
+  "description": "SolidJS Starter Template with ESLint + Prettier",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-solid": "^0.7.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0",
+    "vite-plugin-solid": "^2.3.0"
+  },
+  "dependencies": {
+    "@hope-ui/solid": "^0.6.7",
+    "@stitches/core": "^1.2.8",
+    "solid-icons": "^1.0.1",
+    "solid-js": "^1.4.7",
+    "solid-transition-group": "^0.0.10"
+  }
+}
