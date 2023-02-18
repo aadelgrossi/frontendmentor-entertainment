@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 
 const App: Component = () => {
   return (
-    <div class="h-screen bg-background flex flex-col gap-8 text-text ">
+    <div class="h-screen bg-background flex flex-col gap-8 text-text lg:flex-row">
       <Navbar active="home" />
       <main class="px-10">
         <Heading size="lg">My entertainment web app</Heading>

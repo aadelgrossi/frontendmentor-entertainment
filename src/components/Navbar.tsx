@@ -30,11 +30,18 @@ interface NavbarProps {
 
 const Navbar = (props: NavbarProps) => {
   return (
-    <nav class="md:m-6">
-      <div class="flex flex-row justify-between w-full bg-surface-main py-5 px-4 md:rounded-[10px]">
+    <nav class="md:m-6 lg:m-8">
+      <div
+        class="flex flex-row justify-between items-center w-full bg-surface-main py-5 px-4 md:rounded-[10px]
+        lg:flex-col lg:w-[96px] lg:h-full lg:max-h-[960px] lg:rounded-[20px] lg:gap-[80px]
+      "
+      >
         <Logo />
 
-        <div id="nav-items" class="flex w-max items-center flex-row gap-6">
+        <div
+          id="nav-items"
+          class="flex w-max items-center justify-center flex-row lg:flex-col gap-6 lg:gap-10"
+        >
           <For each={navItems}>
             {({ Icon, label }) => (
               <Icon
@@ -47,7 +54,7 @@ const Navbar = (props: NavbarProps) => {
           </For>
         </div>
 
-        <div id="user">
+        <div id="user" class="mt-auto">
           <p>login</p>
         </div>
       </div>
