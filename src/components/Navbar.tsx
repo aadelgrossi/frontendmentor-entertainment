@@ -4,6 +4,7 @@ import NavBookmark from '../icons/NavBookmark';
 import NavHome from '../icons/NavHome';
 import NavMovies from '../icons/NavMovies';
 import NavTv from '../icons/NavTv';
+import avatar from '../assets/image-avatar.png';
 
 const navItems = [
   {
@@ -54,9 +55,7 @@ const Navbar = (props: NavbarProps) => {
           </For>
         </div>
 
-        <div id="user" class="mt-auto">
-          <p>login</p>
-        </div>
+        <img src={avatar} width={40} height={40} class="mt-auto" />
       </div>
     </nav>
   );
