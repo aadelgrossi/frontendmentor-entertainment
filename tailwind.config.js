@@ -9,7 +9,10 @@ module.exports = {
         primary: '#FC4747',
         background: '#10141E',
         secondary: '#5A698F',
-        surface: '#161D2F',
+        surface: {
+          main: '#161D2F',
+          hover: '#3D4E7B',
+        },
         text: '#FFFFFF',
       },
       fontFamily: {
