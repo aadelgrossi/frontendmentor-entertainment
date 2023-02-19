@@ -14,6 +14,8 @@ interface CardProps {
   isBookmarked?: boolean;
 }
 
+const Divider = () => <span>•</span>;
+
 const Card = (props: CardProps) => {
   const {
     title,
@@ -37,12 +39,15 @@ const Card = (props: CardProps) => {
       "
     >
       <img src={image} class="rounded-lg" />
-      <div id="info" class="flex mt-2 flex-col gap-0 text-gray-300">
-        <span class="flex items-center gap-3 text-sm">
+      <div id="info" class="flex mt-2 flex-col gap-0 text-gray-400 font-light">
+        <span class="flex items-center gap-2 text-sm">
           {year}
+          <Divider />
           <span class="flex items-center gap-2">
-            •{<Icon class="[&>path]:fill-gray-300" />} {category} •
-          </span>{' '}
+            {<Icon class="[&>path]:fill-gray-300" />} {category}
+          </span>
+          <Divider />
+
           {rating}
         </span>
         <Heading size="xs">{title}</Heading>
