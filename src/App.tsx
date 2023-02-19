@@ -1,29 +1,46 @@
 import type { Component } from 'solid-js';
-import Heading from './components/Heading';
 import Input from './components/Input';
+
+import { For } from 'solid-js';
 
 import './index.css';
 
 import search from './assets/icon-search.svg';
 import Navbar from './components/Navbar';
+import Card from './components/Card';
+import data from './constants/data';
 
 const App: Component = () => {
+  const recommended = data.filter((item) => !item.isTrending);
+
   return (
-    <div class="h-screen bg-background flex flex-col gap-8 text-text lg:flex-row">
+    <div class="min-h-screen w-full bg-background flex flex-col text-text lg:flex-row">
       <Navbar active="home" />
-      <main class="px-10">
-        <Heading size="lg">My entertainment web app</Heading>
-        <Input placeholder="Search for Movies or TV Shows" />
+      <main class="w-full flex flex-col px-4 md:px-6 lg:px-10 mt-4 lg:mt-8 gap-10">
         <Input
           size="lg"
           icon={<img src={search} width="24px" height="24px" />}
           placeholder="Search for Movies or TV Shows"
         />
-        <Input
-          placeholder="Search for Movies or TV Shows"
-          error="Can't be empty"
-        />
-        <Input variant="border" placeholder="Email address" />
+
+        <div
+          class="grid grid-cols-2 gap-4
+          md:grid-cols-3 md:gap-5
+          lg:grid-cols-[repeat(auto-fill,minmax(280px,auto))] lg:gap-10"
+        >
+          <For each={recommended}>
+            {(item) => (
+              <Card
+                title={item.title}
+                image={item.thumbnail.regular.large}
+                category={item.category}
+                year={item.year}
+                rating={item.rating}
+                isBookmarked={item.isBookmarked}
+              />
+            )}
+          </For>
+        </div>
       </main>
     </div>
   );
