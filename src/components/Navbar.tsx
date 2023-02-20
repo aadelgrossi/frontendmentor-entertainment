@@ -1,26 +1,27 @@
 import { For } from 'solid-js';
-import Logo from '../icons/Logo';
-import NavBookmark from '../icons/NavBookmark';
-import NavHome from '../icons/NavHome';
-import NavMovies from '../icons/NavMovies';
-import NavTv from '../icons/NavTv';
-import avatar from '../assets/image-avatar.png';
+import Logo from '~/icons/Logo';
+import NavBookmark from '~/icons/NavBookmark';
+import NavHome from '~/icons/NavHome';
+import NavMovies from '~/icons/NavMovies';
+import NavTv from '~/icons/NavTv';
+import avatar from '~/assets/image-avatar.png';
+import { useLocation } from 'solid-start';
 
 const navItems = [
   {
-    label: 'home',
+    href: '/',
     Icon: NavHome,
   },
   {
-    label: 'movies',
+    href: '/movies',
     Icon: NavMovies,
   },
   {
-    label: 'tv',
+    href: '/tv',
     Icon: NavTv,
   },
   {
-    label: 'bookmarks',
+    href: '/bookmarks',
     Icon: NavBookmark,
   },
 ];
@@ -30,6 +31,8 @@ interface NavbarProps {
 }
 
 const Navbar = (props: NavbarProps) => {
+  const location = useLocation();
+  const active = (path: string) => path === location.pathname;
   return (
     <nav class="md:m-6 lg:m-8">
       <div
@@ -44,11 +47,11 @@ const Navbar = (props: NavbarProps) => {
           class="flex w-max items-center justify-center flex-row lg:flex-col gap-6 lg:gap-10"
         >
           <For each={navItems}>
-            {({ Icon, label }) => (
+            {({ Icon, href }) => (
               <Icon
-                class="w-5 h-5 cursor-pointer hover:[&>path]:fill-surface-hover"
+                class="w-5 h-5 cursor-pointer hover:[&>path]:fill-primary"
                 classList={{
-                  ['[&>path]:fill-white']: label === props.active,
+                  ['[&>path]:fill-white']: active(href),
                 }}
               />
             )}

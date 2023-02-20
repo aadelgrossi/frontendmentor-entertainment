@@ -1,14 +1,12 @@
 import type { Component } from 'solid-js';
-import Input from './components/Input';
+import Input from '~/components/Input';
 
 import { For } from 'solid-js';
 
-import './index.css';
-
-import search from './assets/icon-search.svg';
-import Navbar from './components/Navbar';
-import Card from './components/Card';
-import data from './constants/data';
+import search from '~/assets/icon-search.svg';
+import Navbar from '~/components/Navbar';
+import Card from '~/components/Card';
+import data from '~/constants/data';
 
 const App: Component = () => {
   const recommended = data.filter((item) => !item.isTrending);

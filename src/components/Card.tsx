@@ -1,8 +1,8 @@
 import { Show, createSignal } from 'solid-js';
-import BookmarkEmpty from '../icons/BookmarkEmpty';
-import BookmarkFull from '../icons/BookmarkFull';
-import CategoryMovie from '../icons/CategoryMovie';
-import CategoryTv from '../icons/CategoryTv';
+import BookmarkEmpty from '~/icons/BookmarkEmpty';
+import BookmarkFull from '~/icons/BookmarkFull';
+import CategoryMovie from '~/icons/CategoryMovie';
+import CategoryTv from '~/icons/CategoryTv';
 import Heading from './Heading';
 
 interface CardProps {
