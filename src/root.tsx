@@ -12,6 +12,7 @@ import {
   Title,
   Link,
 } from 'solid-start';
+import Layout from '~/components/Layout';
 import './root.css';
 
 const Root = () => {
@@ -31,9 +32,11 @@ const Root = () => {
       <Body>
         <Suspense>
           <ErrorBoundary>
+            <Layout>
             <Routes>
               <FileRoutes />
             </Routes>
+            </Layout>
           </ErrorBoundary>
         </Suspense>
         <Scripts />

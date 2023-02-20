@@ -26,11 +26,9 @@ const navItems = [
   },
 ];
 
-interface NavbarProps {
-  active?: string;
-}
 
-const Navbar = (props: NavbarProps) => {
+
+const Navbar = () => {
   const location = useLocation();
   const active = (path: string) => path === location.pathname;
   return (
