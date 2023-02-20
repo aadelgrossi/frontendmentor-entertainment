@@ -5,7 +5,7 @@ import NavHome from '~/icons/NavHome';
 import NavMovies from '~/icons/NavMovies';
 import NavTv from '~/icons/NavTv';
 import avatar from '~/assets/image-avatar.png';
-import { useLocation } from 'solid-start';
+import { A, useLocation } from 'solid-start';
 
 const navItems = [
   {
@@ -26,8 +26,6 @@ const navItems = [
   },
 ];
 
-
-
 const Navbar = () => {
   const location = useLocation();
   const active = (path: string) => path === location.pathname;
@@ -46,12 +44,14 @@ const Navbar = () => {
         >
           <For each={navItems}>
             {({ Icon, href }) => (
-              <Icon
-                class="w-5 h-5 cursor-pointer hover:[&>path]:fill-primary"
-                classList={{
-                  ['[&>path]:fill-white']: active(href),
-                }}
-              />
+              <A href={href}>
+                <Icon
+                  class="w-5 h-5 cursor-pointer hover:[&>path]:fill-primary"
+                  classList={{
+                    ['[&>path]:fill-white']: active(href),
+                  }}
+                />
+              </A>
             )}
           </For>
         </div>

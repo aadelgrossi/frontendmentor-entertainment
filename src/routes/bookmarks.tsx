@@ -8,11 +8,12 @@ import Card from '~/components/Card';
 import getData from '~/services/getData';
 import Heading from '~/components/Heading';
 
-const Home = () => {
+const Bookmarks = () => {
   const [query, setQuery] = createSignal('');
 
   const [data] = createResource(query, getData);
-  const recommended = () => data()?.filter((item) => !item.isTrending);
+  const recommended = () =>
+    data()?.filter((item) => !item.isTrending && item.isBookmarked);
 
   return (
     <>
@@ -49,5 +50,4 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;
+export default Bookmarks;

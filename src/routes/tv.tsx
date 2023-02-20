@@ -8,11 +8,12 @@ import Card from '~/components/Card';
 import getData from '~/services/getData';
 import Heading from '~/components/Heading';
 
-const Home = () => {
+const TVShows = () => {
   const [query, setQuery] = createSignal('');
 
   const [data] = createResource(query, getData);
-  const recommended = () => data()?.filter((item) => !item.isTrending);
+  const recommended = () =>
+    data()?.filter((item) => !item.isTrending && item.category === 'TV Series');
 
   return (
     <>
@@ -21,7 +22,7 @@ const Home = () => {
         value={query()}
         onInput={(e) => setQuery(e.currentTarget.value)}
         icon={<img src={search} width="24px" height="24px" />}
-        placeholder="Search for Movies or TV Shows"
+        placeholder="Search for TV Series"
       />
 
       <div class="flex flex-col w-full gap-6 lg:gap-8">
@@ -49,5 +50,4 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;
+export default TVShows;
