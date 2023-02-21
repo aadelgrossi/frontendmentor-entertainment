@@ -50,11 +50,11 @@ const Card = (props: CardProps) => {
           src={image}
           classList={{
             ['aspect-[4/2.5]']: !isTrending,
-            ['aspect-[18/9]']: isTrending,
+            ['aspect-[15.5/9]']: isTrending,
           }}
         />
         <Show when={isTrending}>
-          <div class="absolute rounded-lg top-0 right-0 h-full w-full bg-gradient-to-t from-black/80 to-transparent" />
+          <div class="absolute rounded-lg top-0 right-0 h-full w-full bg-gradient-to-t from-black/90 to-transparent" />
         </Show>
 
         <div
@@ -91,7 +91,14 @@ const Card = (props: CardProps) => {
 
           {rating}
         </span>
-        <Heading size={isTrending ? 'sm' : 'xs'}>{title}</Heading>
+        <h5
+          class="text-text text-lg font-medium"
+          classList={{
+            ['lg:text-2xl']: isTrending,
+          }}
+        >
+          {title}
+        </h5>
       </div>
 
       <button
