@@ -36,7 +36,7 @@ const Card = (props: CardProps) => {
 
   return (
     <div
-      class="flex flex-col relative scroll-smooth no-scrollbar"
+      class="flex flex-col relative"
       classList={{
         ['min-w-[164px] md:min-w-[220px] lg:max-w-[280px]']: !isTrending,
         ['min-w-[240px] md:min-w-[470px]']: isTrending,
@@ -63,7 +63,13 @@ const Card = (props: CardProps) => {
           ['relative']: !isTrending,
         }}
       >
-        <span class="flex items-center gap-2 text-sm">
+        <span
+          class="flex items-center gap-2"
+          classList={{
+            ['text-sm']: !isTrending,
+            ['text-[15px]']: isTrending,
+          }}
+        >
           {year}
           <Divider />
           <span class="flex items-center gap-2">
@@ -73,14 +79,14 @@ const Card = (props: CardProps) => {
 
           {rating}
         </span>
-        <Heading size="xs">{title}</Heading>
+        <Heading size={isTrending ? 'sm' : 'xs'}>{title}</Heading>
       </div>
 
       <button
         onClick={toggle}
         class="absolute top-2 right-2 md:top-4 md:right-4"
       >
-        <div class="bg-secondary/50 w-8 h-8 rounded-full flex items-center justify-center">
+        <div class="bg-surface-main/50 w-8 h-8 rounded-full flex items-center justify-center">
           <Show when={isBookmarked()}>
             <BookmarkFull />
           </Show>

@@ -26,7 +26,7 @@ const Home = () => {
       />
 
       <Section title="Trending">
-        <div class="carousel gap-4 md:gap-10">
+        <div class="carousel gap-4 md:gap-10 lg:mr-40">
           <For each={trending()}>
             {(item) => (
               <Card
