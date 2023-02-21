@@ -33,9 +33,9 @@ const Root = () => {
         <Suspense>
           <ErrorBoundary>
             <Layout>
-            <Routes>
-              <FileRoutes />
-            </Routes>
+              <Routes>
+                <FileRoutes />
+              </Routes>
             </Layout>
           </ErrorBoundary>
         </Suspense>
