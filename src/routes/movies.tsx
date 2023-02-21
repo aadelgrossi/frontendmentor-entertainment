@@ -1,4 +1,4 @@
-import { Component, createResource } from 'solid-js';
+import { createResource } from 'solid-js';
 import Input from '~/components/Input';
 
 import { createSignal, For } from 'solid-js';
@@ -6,7 +6,7 @@ import { createSignal, For } from 'solid-js';
 import search from '~/assets/icon-search.svg';
 import Card from '~/components/Card';
 import getData from '~/services/getData';
-import Heading from '~/components/Heading';
+import Section from '~/components/Section';
 
 const Movies = () => {
   const [query, setQuery] = createSignal('');
@@ -25,9 +25,7 @@ const Movies = () => {
         placeholder="Search for Movies"
       />
 
-      <div class="flex flex-col w-full gap-6 lg:gap-8">
-        <Heading size="lg">Recommended for you</Heading>
-
+      <Section>
         <div
           class="grid grid-cols-2 gap-4
         md:grid-cols-3 md:gap-5
@@ -46,7 +44,7 @@ const Movies = () => {
             )}
           </For>
         </div>
-      </div>
+      </Section>
     </>
   );
 };

@@ -7,6 +7,7 @@ import search from '~/assets/icon-search.svg';
 import Card from '~/components/Card';
 import getData from '~/services/getData';
 import Heading from '~/components/Heading';
+import Section from '~/components/Section';
 
 const Home = () => {
   const [query, setQuery] = createSignal('');
@@ -24,9 +25,7 @@ const Home = () => {
         placeholder="Search for Movies or TV Shows"
       />
 
-      <div class="flex flex-col w-full gap-6 lg:gap-8">
-        <Heading size="lg">Recommended for you</Heading>
-
+      <Section>
         <div
           class="grid grid-cols-2 gap-4
         md:grid-cols-3 md:gap-5
@@ -45,7 +44,7 @@ const Home = () => {
             )}
           </For>
         </div>
-      </div>
+      </Section>
     </>
   );
 };
