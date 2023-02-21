@@ -4,6 +4,7 @@ import BookmarkFull from '~/icons/BookmarkFull';
 import CategoryMovie from '~/icons/CategoryMovie';
 import CategoryTv from '~/icons/CategoryTv';
 import Heading from './Heading';
+import PlayButton from './PlayButton';
 
 interface CardProps {
   title: string;
@@ -29,6 +30,7 @@ const Card = (props: CardProps) => {
   } = props;
 
   const [isBookmarked, setIsBookmarked] = createSignal(initialIsBookmarked);
+  const [hovered, setHovered] = createSignal(false);
 
   const Icon = category === 'Movie' ? CategoryMovie : CategoryTv;
 
@@ -52,8 +54,18 @@ const Card = (props: CardProps) => {
           }}
         />
         <Show when={isTrending}>
-          <div class="absolute rounded-lg top-0 right-0 h-full w-full bg-gradient-to-t from-black to-black/10" />
+          <div class="absolute rounded-lg top-0 right-0 h-full w-full bg-gradient-to-t from-black/80 to-transparent" />
         </Show>
+
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          class="absolute flex items-center justify-center rounded-lg top-0 right-0 hover:bg-black/40 w-full h-full transition-colors"
+        >
+          <Show when={hovered()}>
+            <PlayButton />
+          </Show>
+        </div>
       </div>
       <div
         id="info"
