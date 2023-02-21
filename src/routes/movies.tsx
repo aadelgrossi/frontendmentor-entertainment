@@ -11,9 +11,8 @@ import Section from '~/components/Section';
 const Movies = () => {
   const [query, setQuery] = createSignal('');
 
-  const [data] = createResource(query, getData);
-  const movies = () =>
-    data()?.filter((item) => !item.isTrending && item.category === 'Movie');
+  const [data] = createResource(query, () => getData(query()));
+  const movies = () => data()?.filter((item) => item.category === 'Movie');
 
   return (
     <>

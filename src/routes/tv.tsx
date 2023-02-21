@@ -11,9 +11,8 @@ import Section from '~/components/Section';
 const TVShows = () => {
   const [query, setQuery] = createSignal('');
 
-  const [data] = createResource(query, getData);
-  const tv = () =>
-    data()?.filter((item) => !item.isTrending && item.category === 'TV Series');
+  const [data] = createResource(query, () => getData(query()));
+  const tv = () => data()?.filter((item) => item.category === 'TV Series');
 
   return (
     <>

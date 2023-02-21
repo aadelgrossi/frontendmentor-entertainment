@@ -12,9 +12,8 @@ import Section from '~/components/Section';
 const Home = () => {
   const [query, setQuery] = createSignal('');
 
-  const [data] = createResource(query, getData);
-  const trending = () => data()?.filter((item) => item.isTrending);
-  const recommended = () => data()?.filter((item) => !item.isTrending);
+  const [trending] = createResource(() => getData(query(), true));
+  const [recommended] = createResource(query, () => getData(query(), false));
 
   return (
     <>

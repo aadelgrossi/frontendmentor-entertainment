@@ -11,7 +11,7 @@ import Section from '~/components/Section';
 const Bookmarks = () => {
   const [query, setQuery] = createSignal('');
 
-  const [data] = createResource(query, getData);
+  const [data] = createResource(query, () => getData(query()));
   const movies = () =>
     data()?.filter((item) => item.isBookmarked && item.category === 'Movie');
 
