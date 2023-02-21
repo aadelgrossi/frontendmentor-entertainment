@@ -13,6 +13,7 @@ const Home = () => {
   const [query, setQuery] = createSignal('');
 
   const [data] = createResource(query, getData);
+  const trending = () => data()?.filter((item) => item.isTrending);
   const recommended = () => data()?.filter((item) => !item.isTrending);
 
   return (
@@ -25,11 +26,29 @@ const Home = () => {
         placeholder="Search for Movies or TV Shows"
       />
 
+      <Section title="Trending">
+        <div class="carousel gap-4 md:gap-10">
+          <For each={trending()}>
+            {(item) => (
+              <Card
+                isTrending
+                title={item.title}
+                image={item.thumbnail.regular.large}
+                category={item.category}
+                year={item.year}
+                rating={item.rating}
+                isBookmarked={item.isBookmarked}
+              />
+            )}
+          </For>
+        </div>
+      </Section>
+
       <Section>
         <div
-          class="grid grid-cols-2 gap-4
-        md:grid-cols-3 md:gap-5
-        lg:grid-cols-[repeat(auto-fill,minmax(280px,auto))] lg:gap-10"
+          class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+        md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
+        lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
         >
           <For each={recommended()}>
             {(item) => (

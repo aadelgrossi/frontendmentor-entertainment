@@ -12,8 +12,13 @@ const Bookmarks = () => {
   const [query, setQuery] = createSignal('');
 
   const [data] = createResource(query, getData);
-  const recommended = () =>
-    data()?.filter((item) => !item.isTrending && item.isBookmarked);
+  const movies = () =>
+    data()?.filter((item) => item.isBookmarked && item.category === 'Movie');
+
+  const tv = () =>
+    data()?.filter(
+      (item) => item.isBookmarked && item.category === 'TV Series'
+    );
 
   return (
     <>
@@ -25,13 +30,34 @@ const Bookmarks = () => {
         placeholder="Search for Movies or TV Shows"
       />
 
-      <Section>
+      <Section title="Bookmarked Movies">
         <div
-          class="grid grid-cols-2 gap-4
-        md:grid-cols-3 md:gap-5
-        lg:grid-cols-[repeat(auto-fill,minmax(280px,auto))] lg:gap-10"
+          class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+        md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
+        lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
         >
-          <For each={recommended()}>
+          <For each={movies()}>
+            {(item) => (
+              <Card
+                title={item.title}
+                image={item.thumbnail.regular.large}
+                category={item.category}
+                year={item.year}
+                rating={item.rating}
+                isBookmarked={item.isBookmarked}
+              />
+            )}
+          </For>
+        </div>
+      </Section>
+
+      <Section title="Bookmarked TV Shows">
+        <div
+          class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+        md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
+        lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
+        >
+          <For each={tv()}>
             {(item) => (
               <Card
                 title={item.title}

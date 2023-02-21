@@ -12,7 +12,7 @@ const Movies = () => {
   const [query, setQuery] = createSignal('');
 
   const [data] = createResource(query, getData);
-  const recommended = () =>
+  const movies = () =>
     data()?.filter((item) => !item.isTrending && item.category === 'Movie');
 
   return (
@@ -24,14 +24,13 @@ const Movies = () => {
         icon={<img src={search} width="24px" height="24px" />}
         placeholder="Search for Movies"
       />
-
-      <Section>
+      <Section title="Movies">
         <div
-          class="grid grid-cols-2 gap-4
-        md:grid-cols-3 md:gap-5
-        lg:grid-cols-[repeat(auto-fill,minmax(280px,auto))] lg:gap-10"
+          class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+        md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
+        lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
         >
-          <For each={recommended()}>
+          <For each={movies()}>
             {(item) => (
               <Card
                 title={item.title}

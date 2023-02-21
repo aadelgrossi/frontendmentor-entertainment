@@ -12,7 +12,7 @@ const TVShows = () => {
   const [query, setQuery] = createSignal('');
 
   const [data] = createResource(query, getData);
-  const recommended = () =>
+  const tv = () =>
     data()?.filter((item) => !item.isTrending && item.category === 'TV Series');
 
   return (
@@ -25,13 +25,13 @@ const TVShows = () => {
         placeholder="Search for TV Series"
       />
 
-      <Section>
+      <Section title="TV Shows">
         <div
-          class="grid grid-cols-2 gap-4
-        md:grid-cols-3 md:gap-5
-        lg:grid-cols-[repeat(auto-fill,minmax(280px,auto))] lg:gap-10"
+          class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+        md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
+        lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
         >
-          <For each={recommended()}>
+          <For each={tv()}>
             {(item) => (
               <Card
                 title={item.title}
