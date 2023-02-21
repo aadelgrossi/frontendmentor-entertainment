@@ -12,6 +12,7 @@ interface CardProps {
   rating: string;
   image: string;
   isBookmarked?: boolean;
+  isTrending?: boolean;
 }
 
 const Divider = () => <span>•</span>;
@@ -24,6 +25,7 @@ const Card = (props: CardProps) => {
     rating,
     image,
     isBookmarked: initialIsBookmarked,
+    isTrending,
   } = props;
 
   const [isBookmarked, setIsBookmarked] = createSignal(initialIsBookmarked);
@@ -34,12 +36,33 @@ const Card = (props: CardProps) => {
 
   return (
     <div
-      class="flex flex-col relative
-      min-w-[164px] md:min-w-[220px] lg:min-w-[280px]
-      "
+      class="flex flex-col relative scroll-smooth no-scrollbar"
+      classList={{
+        ['min-w-[164px] md:min-w-[220px] lg:max-w-[280px]']: !isTrending,
+        ['min-w-[240px] md:min-w-[470px]']: isTrending,
+      }}
     >
-      <img src={image} class="rounded-lg" />
-      <div id="info" class="flex mt-2 flex-col gap-0 text-gray-400 font-light">
+      <div class="relative">
+        <img
+          class="rounded-lg"
+          src={image}
+          classList={{
+            ['aspect-[4/2.5]']: !isTrending,
+            ['aspect-[18/9]']: isTrending,
+          }}
+        />
+        <Show when={isTrending}>
+          <div class="absolute rounded-lg top-0 right-0 h-full w-full bg-gradient-to-t from-black to-black/10" />
+        </Show>
+      </div>
+      <div
+        id="info"
+        class="flex mt-2 flex-col gap-0 text-gray-400 font-light"
+        classList={{
+          ['absolute bottom-4 left-4 md:bottom-6 md:left-6']: isTrending,
+          ['relative']: !isTrending,
+        }}
+      >
         <span class="flex items-center gap-2 text-sm">
           {year}
           <Divider />
