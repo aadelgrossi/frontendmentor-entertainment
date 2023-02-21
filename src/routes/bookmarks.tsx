@@ -1,4 +1,4 @@
-import { createResource, For } from 'solid-js';
+import { createResource, For, Show } from 'solid-js';
 import Input from '~/components/Input';
 
 import search from '~/assets/icon-search.svg';
@@ -29,50 +29,54 @@ const Bookmarks = () => {
         value={query()}
         onInput={(e) => setQuery(e.currentTarget.value)}
         icon={<img src={search} width="24px" height="24px" />}
-        placeholder="Search for Movies or TV Shows"
+        placeholder="Search for bookmarked Movies or TV Shows"
       />
 
-      <Section title="Bookmarked Movies">
-        <div
-          class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+      <Show when={movies()?.length}>
+        <Section title="Bookmarked Movies">
+          <div
+            class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
         md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
         lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
-        >
-          <For each={movies()}>
-            {(item) => (
-              <Card
-                title={item.title}
-                image={item.thumbnail.regular.large}
-                category={item.category}
-                year={item.year}
-                rating={item.rating}
-                isBookmarked={item.isBookmarked}
-              />
-            )}
-          </For>
-        </div>
-      </Section>
+          >
+            <For each={movies()}>
+              {(item) => (
+                <Card
+                  title={item.title}
+                  image={item.thumbnail.regular.large}
+                  category={item.category}
+                  year={item.year}
+                  rating={item.rating}
+                  isBookmarked={item.isBookmarked}
+                />
+              )}
+            </For>
+          </div>
+        </Section>
+      </Show>
 
-      <Section title="Bookmarked TV Shows">
-        <div
-          class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+      <Show when={tv()?.length}>
+        <Section title="Bookmarked TV Shows">
+          <div
+            class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
         md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
         lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
-        >
-          <For each={tv()}>
-            {(item) => (
-              <Card
-                title={item.title}
-                image={item.thumbnail.regular.large}
-                category={item.category}
-                year={item.year}
-                rating={item.rating}
-                isBookmarked={item.isBookmarked}
-              />
-            )}
-          </For>
-        </div>
-      </Section>
+          >
+            <For each={tv()}>
+              {(item) => (
+                <Card
+                  title={item.title}
+                  image={item.thumbnail.regular.large}
+                  category={item.category}
+                  year={item.year}
+                  rating={item.rating}
+                  isBookmarked={item.isBookmarked}
+                />
+              )}
+            </For>
+          </div>
+        </Section>
+      </Show>
     </>
   );
 };

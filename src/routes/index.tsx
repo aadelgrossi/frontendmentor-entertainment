@@ -15,6 +15,14 @@ const Home = () => {
 
   const [trending] = createResource(query, () => getData(query(), true));
   const [recommended] = createResource(query, () => getData(query(), false));
+  const [all] = createResource(query, () => getData(query()));
+
+  const sectionTitle = () => {
+    if (!query()) return 'Recommended for you';
+    if (all()?.length)
+      return `Found ${all()?.length} result(s) for '${query()}'`;
+    return 'No results found';
+  };
 
   return (
     <>
@@ -28,7 +36,7 @@ const Home = () => {
         />
       </span>
 
-      <Show when={trending()?.length}>
+      <Show when={trending()?.length && !query()}>
         <Section title="Trending">
           <div class="carousel lg:max-w-[88vw] gap-4 md:gap-10">
             <For each={trending()}>
@@ -49,28 +57,26 @@ const Home = () => {
         </Section>
       </Show>
 
-      <Show when={recommended()?.length}>
-        <Section>
-          <div
-            class="grid grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
+      <Section title={sectionTitle()}>
+        <div
+          class="grid grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
         md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
         lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
-          >
-            <For each={recommended()}>
-              {(item) => (
-                <Card
-                  title={item.title}
-                  image={item.thumbnail.regular.large}
-                  category={item.category}
-                  year={item.year}
-                  rating={item.rating}
-                  isBookmarked={item.isBookmarked}
-                />
-              )}
-            </For>
-          </div>
-        </Section>
-      </Show>
+        >
+          <For each={query() ? all() : recommended()}>
+            {(item) => (
+              <Card
+                title={item.title}
+                image={item.thumbnail.regular.large}
+                category={item.category}
+                year={item.year}
+                rating={item.rating}
+                isBookmarked={item.isBookmarked}
+              />
+            )}
+          </For>
+        </div>
+      </Section>
     </>
   );
 };

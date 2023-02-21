@@ -15,6 +15,12 @@ const TVShows = () => {
   const [data] = createResource(query, () => getData(query()));
   const tv = () => data()?.filter((item) => item.category === 'TV Series');
 
+  const sectionTitle = () => {
+    if (!query()) return 'Recommended for you';
+    if (tv()?.length) return `Found ${tv()?.length} result(s) for '${query()}'`;
+    return 'No results found';
+  };
+
   return (
     <>
       <Input
@@ -25,7 +31,7 @@ const TVShows = () => {
         placeholder="Search for TV Series"
       />
 
-      <Section title="TV Shows">
+      <Section title={sectionTitle()}>
         <div
           class="grid lg:w-[90%] grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
         md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
