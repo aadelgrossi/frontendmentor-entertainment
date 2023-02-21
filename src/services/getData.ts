@@ -5,7 +5,7 @@ const getData = (query = '', isTrending?: boolean) => {
     item.title.toLowerCase().includes(query.toLowerCase())
   );
 
-  if (isTrending)
+  if (isTrending !== undefined)
     return results.filter((item) => item.isTrending === isTrending);
 
   return results;
