@@ -14,7 +14,7 @@ const Input = (props: InputProps) => {
         <span class="flex items-center h-full">{props.icon}</span>
       </Show>
       <input
-        class="bg-background w-full
+        class="bg-background w-full transition-[border] ease-in-out
         border-transparent border-2 pb-[18px] focus:outline-none focus:border-b-secondary
         font-light text-text caret-primary"
         classList={{
