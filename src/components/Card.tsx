@@ -50,7 +50,7 @@ const Card = (props: CardProps) => {
           src={image}
           classList={{
             ['aspect-[4/2.5]']: !isTrending,
-            ['aspect-[15.5/9]']: isTrending,
+            ['aspect-[16/9]']: isTrending,
           }}
         />
         <Show when={isTrending}>

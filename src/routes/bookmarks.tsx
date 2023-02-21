@@ -1,15 +1,17 @@
-import { createResource } from 'solid-js';
+import { createResource, For } from 'solid-js';
 import Input from '~/components/Input';
-
-import { createSignal, For } from 'solid-js';
 
 import search from '~/assets/icon-search.svg';
 import Card from '~/components/Card';
 import getData from '~/services/getData';
 import Section from '~/components/Section';
 
+import createSearchInput from '~/hooks/createSearchInput';
+
 const Bookmarks = () => {
-  const [query, setQuery] = createSignal('');
+  const searchInput = createSearchInput();
+  const query = searchInput.query;
+  const setQuery = searchInput.setQuery;
 
   const [data] = createResource(query, () => getData(query()));
   const movies = () =>
