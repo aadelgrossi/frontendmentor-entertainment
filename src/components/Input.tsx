@@ -18,6 +18,7 @@ const Input = (props: InputProps) => {
         border-transparent border-2 pb-[18px] focus:outline-none focus:border-b-secondary
         font-light text-text caret-primary"
         classList={{
+          ['bg-transparent']: props.variant === 'border',
           ['border-b-secondary focus:border-b-text px-4']:
             props.variant === 'border',
           ['border-b-primary focus:border-b-primary']: Boolean(props?.error),

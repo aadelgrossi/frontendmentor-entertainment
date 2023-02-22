@@ -8,6 +8,7 @@ import Section from '~/components/Section';
 
 import createSearchInput from '~/hooks/createSearchInput';
 import createBookmarksStore from '~/store';
+import Layout from '~/components/Layout';
 
 const Bookmarks = () => {
   const searchInput = createSearchInput();
@@ -30,7 +31,7 @@ const Bookmarks = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Input
         size="lg"
         value={query()}
@@ -82,7 +83,7 @@ const Bookmarks = () => {
           </div>
         </Section>
       </Show>
-    </>
+    </Layout>
   );
 };
 export default Bookmarks;

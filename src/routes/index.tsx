@@ -7,6 +7,7 @@ import getData from '~/services/getData';
 import Section from '~/components/Section';
 
 import createSearchInput from '~/hooks/createSearchInput';
+import Layout from '~/components/Layout';
 
 const Home = () => {
   const searchInput = createSearchInput();
@@ -25,7 +26,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <Layout>
       <span class="lg:mr-20">
         <Input
           size="lg"
@@ -75,7 +76,7 @@ const Home = () => {
           </For>
         </div>
       </Section>
-    </>
+    </Layout>
   );
 };
 

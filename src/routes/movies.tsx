@@ -6,6 +6,7 @@ import Card from '~/components/Card';
 import getData from '~/services/getData';
 import Section from '~/components/Section';
 import createSearchInput from '~/hooks/createSearchInput';
+import Layout from '~/components/Layout';
 
 const Movies = () => {
   const searchInput = createSearchInput();
@@ -23,7 +24,7 @@ const Movies = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Input
         size="lg"
         value={query()}
@@ -50,7 +51,7 @@ const Movies = () => {
           </For>
         </div>
       </Section>
-    </>
+    </Layout>
   );
 };
 export default Movies;

@@ -6,6 +6,7 @@ import Card from '~/components/Card';
 import getData from '~/services/getData';
 import Section from '~/components/Section';
 import createSearchInput from '~/hooks/createSearchInput';
+import Layout from '~/components/Layout';
 
 const TVShows = () => {
   const searchInput = createSearchInput();
@@ -22,7 +23,7 @@ const TVShows = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Input
         size="lg"
         value={query()}
@@ -50,7 +51,7 @@ const TVShows = () => {
           </For>
         </div>
       </Section>
-    </>
+    </Layout>
   );
 };
 export default TVShows;
