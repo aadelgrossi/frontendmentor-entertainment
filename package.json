@@ -33,7 +33,9 @@
     "solid-js": "^1.6.11",
     "solid-start": "^0.2.21",
     "solid-transition-group": "^0.0.10",
-    "undici": "^5.20.0"
+    "solid-zustand": "^1.5.0",
+    "undici": "^5.20.0",
+    "zustand": "^4.3.3"
   },
   "engines": {
     "node": ">=16.8"

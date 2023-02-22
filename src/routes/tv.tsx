@@ -45,7 +45,6 @@ const TVShows = () => {
                 category={item.category}
                 year={item.year}
                 rating={item.rating}
-                isBookmarked={item.isBookmarked}
               />
             )}
           </For>

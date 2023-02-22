@@ -48,7 +48,6 @@ const Home = () => {
                   category={item.category}
                   year={item.year}
                   rating={item.rating}
-                  isBookmarked={item.isBookmarked}
                 />
               )}
             </For>
@@ -71,7 +70,6 @@ const Home = () => {
                 category={item.category}
                 year={item.year}
                 rating={item.rating}
-                isBookmarked={item.isBookmarked}
               />
             )}
           </For>

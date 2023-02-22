@@ -3,7 +3,7 @@ import BookmarkEmpty from '~/icons/BookmarkEmpty';
 import BookmarkFull from '~/icons/BookmarkFull';
 import CategoryMovie from '~/icons/CategoryMovie';
 import CategoryTv from '~/icons/CategoryTv';
-import Heading from './Heading';
+import createBookmarksStore from '~/store';
 import PlayButton from './PlayButton';
 
 interface CardProps {
@@ -12,29 +12,20 @@ interface CardProps {
   category: string;
   rating: string;
   image: string;
-  isBookmarked?: boolean;
   isTrending?: boolean;
 }
 
 const Divider = () => <span>•</span>;
 
 const Card = (props: CardProps) => {
-  const {
-    title,
-    year,
-    category,
-    rating,
-    image,
-    isBookmarked: initialIsBookmarked,
-    isTrending,
-  } = props;
+  const { title, year, category, rating, image, isTrending } = props;
 
-  const [isBookmarked, setIsBookmarked] = createSignal(initialIsBookmarked);
   const [hovered, setHovered] = createSignal(false);
 
-  const Icon = category === 'Movie' ? CategoryMovie : CategoryTv;
+  const toggleBookmark = createBookmarksStore((state) => state.toggleBookmark);
+  const bookmarks = createBookmarksStore((state) => state.bookmarks);
 
-  const toggle = () => setIsBookmarked((state) => !state);
+  const Icon = category === 'Movie' ? CategoryMovie : CategoryTv;
 
   return (
     <div
@@ -102,16 +93,11 @@ const Card = (props: CardProps) => {
       </div>
 
       <button
-        onClick={toggle}
+        onClick={() => toggleBookmark(title)}
         class="absolute top-2 right-2 md:top-4 md:right-4"
       >
         <div class="bg-surface-main/50 w-8 h-8 rounded-full flex items-center justify-center">
-          <Show when={isBookmarked()}>
-            <BookmarkFull />
-          </Show>
-          <Show when={!isBookmarked()}>
-            <BookmarkEmpty />
-          </Show>
+          {bookmarks.includes(title) ? <BookmarkFull /> : <BookmarkEmpty />}
         </div>
       </button>
     </div>

@@ -7,20 +7,27 @@ import getData from '~/services/getData';
 import Section from '~/components/Section';
 
 import createSearchInput from '~/hooks/createSearchInput';
+import createBookmarksStore from '~/store';
 
 const Bookmarks = () => {
   const searchInput = createSearchInput();
   const query = searchInput.query;
   const setQuery = searchInput.setQuery;
 
-  const [data] = createResource(query, () => getData(query()));
-  const movies = () =>
-    data()?.filter((item) => item.isBookmarked && item.category === 'Movie');
+  const bookmarks = createBookmarksStore((state) => state.bookmarks);
 
-  const tv = () =>
-    data()?.filter(
-      (item) => item.isBookmarked && item.category === 'TV Series'
+  const [data] = createResource(query, () => getData(query()));
+  const movies = () => {
+    return data()?.filter(
+      (item) => bookmarks.includes(item.title) && item.category === 'Movie'
     );
+  };
+
+  const tv = () => {
+    return data()?.filter(
+      (item) => bookmarks.includes(item.title) && item.category === 'TV Series'
+    );
+  };
 
   return (
     <>
@@ -47,7 +54,6 @@ const Bookmarks = () => {
                   category={item.category}
                   year={item.year}
                   rating={item.rating}
-                  isBookmarked={item.isBookmarked}
                 />
               )}
             </For>
@@ -70,7 +76,6 @@ const Bookmarks = () => {
                   category={item.category}
                   year={item.year}
                   rating={item.rating}
-                  isBookmarked={item.isBookmarked}
                 />
               )}
             </For>
