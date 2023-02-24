@@ -9,7 +9,7 @@ interface ButtonProps extends ParentProps {
 const Button = (props: ButtonProps) => {
   const classes =
     twMerge(`flex items-center w-full h-12 justify-center p-4 bg-primary rounded-[6px]
-  transition-colors font-light
+  transition-colors font-light gap-2
   hover:bg-white text-white hover:text-surface-main ${props.class}`);
 
   return (
