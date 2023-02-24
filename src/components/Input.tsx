@@ -9,7 +9,7 @@ interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
 
 const Input = (props: InputProps) => {
   return (
-    <div class="flex gap-6 h-[37px] items-start relative">
+    <div class="flex gap-6 items-start relative">
       <Show when={props.icon}>
         <span class="flex items-center h-full">{props.icon}</span>
       </Show>
