@@ -11,7 +11,7 @@ const AuthProfile = () => {
     <Switch>
       <Match when={state.loading}>
         <div
-          class="radial-progress text-primary animate-spin m-[10px]"
+          class="radial-progress text-primary animate-spin mt-auto m-[10px]"
           style={{
             '--value': '70',
             '--size': '20px',
@@ -21,7 +21,7 @@ const AuthProfile = () => {
       </Match>
 
       <Match when={!state.data && !state.loading}>
-        <A href="/login">
+        <A href="/login" class="mt-auto">
           <BiSolidUserCircle size={40} class="fill-primary" />
         </A>
       </Match>
