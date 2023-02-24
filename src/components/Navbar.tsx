@@ -4,8 +4,8 @@ import NavBookmark from '~/icons/NavBookmark';
 import NavHome from '~/icons/NavHome';
 import NavMovies from '~/icons/NavMovies';
 import NavTv from '~/icons/NavTv';
-import avatar from '~/assets/image-avatar.png';
 import { A, useLocation } from 'solid-start';
+import AuthProfile from './AuthProfile';
 
 const navItems = [
   {
@@ -56,7 +56,7 @@ const Navbar = () => {
           </For>
         </div>
 
-        <img src={avatar} width={40} height={40} class="mt-auto" />
+        <AuthProfile />
       </div>
     </nav>
   );
