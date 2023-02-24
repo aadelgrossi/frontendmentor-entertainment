@@ -4,7 +4,6 @@ import {
   GithubAuthProvider,
   getAuth,
   signInWithPopup,
-  signOut,
 } from 'firebase/auth';
 import { useNavigate } from 'solid-start';
 
