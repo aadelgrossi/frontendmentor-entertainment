@@ -1,12 +1,17 @@
 import AuthContainer from '~/components/AuthContainer';
+import SocialLogin from '~/components/SocialLogin';
 import Button from '~/components/Button';
 import Input from '~/components/Input';
+import TextSeparator from '~/components/TextSeparator';
 
 const Login = () => {
   return (
-    <main class="min-h-screen bg-background w-full flex flex-col px-6 md:px-6 lg:px-10 lg:mt-8 items-center justify-center">
+    <main class="min-h-screen bg-background w-full flex flex-col px-6 md:px-6 lg:px-10 items-center justify-center">
       <AuthContainer title="Login">
-        <div class="flex flex-col gap-8 mt-10 mb-20">
+        <SocialLogin />
+        <TextSeparator>or create an account</TextSeparator>
+
+        <div class="flex flex-col gap-8 mt-8 mb-16">
           <Input placeholder="Email address" variant="border" />
           <Input placeholder="Password" variant="border" />
         </div>
