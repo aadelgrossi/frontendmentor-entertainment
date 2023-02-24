@@ -1,20 +1,13 @@
-import { ParentProps } from 'solid-js';
+import { JSX } from 'solid-js';
 import { twMerge } from 'tailwind-merge';
 
-interface ButtonProps extends ParentProps {
-  class?: string;
-  onClick?: () => void;
-}
-
-const Button = (props: ButtonProps) => {
+const Button = (props: JSX.ButtonHTMLAttributes<HTMLButtonElement>) => {
   const classes =
     twMerge(`flex items-center w-full h-12 justify-center p-4 bg-primary rounded-[6px]
   transition-colors font-light gap-2
   hover:bg-white text-white hover:text-surface-main ${props.class}`);
 
-  return (
-    <button children={props.children} onClick={props.onClick} class={classes} />
-  );
+  return <button {...props} class={classes} />;
 };
 
 export default Button;
