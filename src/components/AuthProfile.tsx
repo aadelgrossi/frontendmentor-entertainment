@@ -7,7 +7,6 @@ import { BiSolidUserCircle } from 'solid-icons/bi';
 const AuthProfile = () => {
   const app = useFirebaseApp();
   const state = useAuth(getAuth(app));
-
   return (
     <Switch>
       <Match when={state.loading}>
@@ -34,7 +33,10 @@ const AuthProfile = () => {
         >
           <img
             referrerpolicy="no-referrer"
-            src={state.data?.photoURL || ''}
+            src={
+              state.data?.photoURL ||
+              `https://i.pravatar.cc/150?u=${state.data?.uid}`
+            }
             width={40}
             height={40}
             class="rounded-full cursor-pointer"
