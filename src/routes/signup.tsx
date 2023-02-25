@@ -1,9 +1,10 @@
+import { reporter } from '@felte/reporter-solid';
 import { createForm } from '@felte/solid';
+
 import AuthContainer from '~/components/AuthContainer';
 import Button from '~/components/Button';
 import Input from '~/components/Input';
 import useSignUpWithPassword from '~/hooks/useSignUpWithPassword';
-import { reporter } from '@felte/reporter-solid';
 
 type SignUpFormData = {
   email: string;

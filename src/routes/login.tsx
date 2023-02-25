@@ -1,11 +1,12 @@
+import { reporter } from '@felte/reporter-solid';
+import { createForm } from '@felte/solid';
+
 import AuthContainer from '~/components/AuthContainer';
-import SocialLogin from '~/components/SocialLogin';
 import Button from '~/components/Button';
 import Input from '~/components/Input';
+import SocialLogin from '~/components/SocialLogin';
 import TextSeparator from '~/components/TextSeparator';
 import useLoginWithPassword from '~/hooks/useLoginWithPassword';
-import { createForm } from '@felte/solid';
-import { reporter } from '@felte/reporter-solid';
 
 type LoginFormData = {
   email: string;

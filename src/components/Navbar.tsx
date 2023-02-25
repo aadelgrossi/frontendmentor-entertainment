@@ -1,10 +1,12 @@
 import { For } from 'solid-js';
+import { A, useLocation } from 'solid-start';
+
 import Logo from '~/icons/Logo';
 import NavBookmark from '~/icons/NavBookmark';
 import NavHome from '~/icons/NavHome';
 import NavMovies from '~/icons/NavMovies';
 import NavTv from '~/icons/NavTv';
-import { A, useLocation } from 'solid-start';
+
 import AuthProfile from './AuthProfile';
 
 const navItems = [

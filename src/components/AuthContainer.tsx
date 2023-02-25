@@ -1,4 +1,5 @@
 import { ParentProps } from 'solid-js';
+
 import Heading from './Heading';
 
 interface AuthContainerProps extends ParentProps {

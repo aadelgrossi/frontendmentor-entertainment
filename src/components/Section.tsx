@@ -1,4 +1,5 @@
-import { ParentProps, For } from 'solid-js';
+import { ParentProps } from 'solid-js';
+
 import Heading from './Heading';
 
 interface SectionProps extends ParentProps {

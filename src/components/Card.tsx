@@ -1,9 +1,11 @@
-import { Show, createSignal } from 'solid-js';
+import { createSignal, Show } from 'solid-js';
+
 import BookmarkEmpty from '~/icons/BookmarkEmpty';
 import BookmarkFull from '~/icons/BookmarkFull';
 import CategoryMovie from '~/icons/CategoryMovie';
 import CategoryTv from '~/icons/CategoryTv';
 import createBookmarksStore from '~/store';
+
 import PlayButton from './PlayButton';
 
 interface CardProps {

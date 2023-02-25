@@ -1,4 +1,5 @@
 import { mergeProps, ParentProps, Show } from 'solid-js';
+
 import Navbar from './Navbar';
 
 interface LayoutProps extends ParentProps {

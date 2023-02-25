@@ -1,8 +1,8 @@
-import { Switch, Match } from 'solid-js';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuth, useFirebaseApp } from 'solid-firebase';
-import { A } from 'solid-start';
 import { BiSolidUserCircle } from 'solid-icons/bi';
+import { Match, Switch } from 'solid-js';
+import { A } from 'solid-start';
 
 const AuthProfile = () => {
   const app = useFirebaseApp();

@@ -1,10 +1,10 @@
-import { useFirebaseApp } from 'solid-firebase';
 import {
-  GoogleAuthProvider,
-  GithubAuthProvider,
   getAuth,
+  GithubAuthProvider,
+  GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
+import { useFirebaseApp } from 'solid-firebase';
 import { useNavigate } from 'solid-start';
 
 const useLoginWithProvider = () => {

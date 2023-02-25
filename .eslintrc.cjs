@@ -17,7 +17,13 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['solid', 'prettier', 'standard', '@typescript-eslint'],
+  plugins: [
+    'solid',
+    'prettier',
+    'standard',
+    '@typescript-eslint',
+    'simple-import-sort',
+  ],
   rules: {
     'prettier/prettier': 'error',
     'solid/jsx-no-undef': 2,
@@ -59,8 +65,8 @@ module.exports = {
         skipBlankLines: false,
       },
     ],
-    'no-unused-vars': 'warn',
-    '@typescript-eslint/no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
     'no-prototype-builtins': 'warn',
     'no-console': 1,
     'prefer-template': 'error',
@@ -75,5 +81,7 @@ module.exports = {
     'quote-props': ['error', 'consistent-as-needed'],
     'use-isnan': 'error',
     'no-empty-function': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 };

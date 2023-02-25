@@ -1,13 +1,12 @@
 import { createResource, For, Show } from 'solid-js';
-import Input from '~/components/Input';
 
 import search from '~/assets/icon-search.svg';
 import Card from '~/components/Card';
-import getData from '~/services/getData';
-import Section from '~/components/Section';
-
-import createSearchInput from '~/hooks/createSearchInput';
+import Input from '~/components/Input';
 import Layout from '~/components/Layout';
+import Section from '~/components/Section';
+import createSearchInput from '~/hooks/createSearchInput';
+import getData from '~/services/getData';
 
 const Home = () => {
   const searchInput = createSearchInput();

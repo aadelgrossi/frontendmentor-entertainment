@@ -1,5 +1,5 @@
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { useFirebaseApp } from 'solid-firebase';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'solid-start';
 
 const useSignUpWithPassword = () => {

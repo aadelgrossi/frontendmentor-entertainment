@@ -1,10 +1,11 @@
-import useLoginWithProvider from '~/hooks/useLoginWithProvider';
-import Button from './Button';
-import { useAuth, useFirebaseApp } from 'solid-firebase';
 import { getAuth } from 'firebase/auth';
+import { useAuth, useFirebaseApp } from 'solid-firebase';
+import { AiFillGithub, AiFillGoogleCircle } from 'solid-icons/ai';
 import { Show } from 'solid-js';
 
-import { AiFillGithub, AiFillGoogleCircle } from 'solid-icons/ai';
+import useLoginWithProvider from '~/hooks/useLoginWithProvider';
+
+import Button from './Button';
 
 const AuthProviders = () => {
   const { signInWithGithub, signInWithGoogle } = useLoginWithProvider();

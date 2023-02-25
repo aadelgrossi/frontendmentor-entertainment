@@ -1,4 +1,5 @@
 import Play from '~/icons/Play';
+
 import Heading from './Heading';
 
 const PlayButton = () => {

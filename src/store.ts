@@ -1,5 +1,4 @@
 import create from 'solid-zustand';
-
 import { persist } from 'zustand/middleware';
 interface BookmarksState {
   bookmarks: string[];

@@ -1,4 +1,6 @@
 // @refresh reload
+import './root.css';
+
 import { FirebaseProvider } from 'solid-firebase';
 import { Suspense } from 'solid-js';
 import {
@@ -7,13 +9,12 @@ import {
   FileRoutes,
   Head,
   Html,
+  Link,
   Meta,
   Routes,
   Scripts,
   Title,
-  Link,
 } from 'solid-start';
-import './root.css';
 
 const Root = () => {
   return (
