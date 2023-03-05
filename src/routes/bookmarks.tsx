@@ -6,6 +6,8 @@ import Input from '~/components/Input';
 import Layout from '~/components/Layout';
 import Section from '~/components/Section';
 import createSearchInput from '~/hooks/createSearchInput';
+import useAuthState from '~/hooks/useAuthState';
+import useBookmarks from '~/hooks/useBookmarks';
 import getData from '~/services/getData';
 import createBookmarksStore from '~/store';
 
@@ -14,16 +16,32 @@ const Bookmarks = () => {
   const query = searchInput.query;
   const setQuery = searchInput.setQuery;
 
+  const authenticated = useAuthState();
+
   const bookmarks = createBookmarksStore((state) => state.bookmarks);
+  const { userBookmarks } = useBookmarks();
 
   const [data] = createResource(query, () => getData(query()));
+
   const movies = () => {
+    if (authenticated) {
+      return data()?.filter(
+        (item) =>
+          userBookmarks()?.includes(item.title) && item.category === 'Movie'
+      );
+    }
     return data()?.filter(
       (item) => bookmarks.includes(item.title) && item.category === 'Movie'
     );
   };
 
   const tv = () => {
+    if (authenticated) {
+      return data()?.filter(
+        (item) =>
+          userBookmarks()?.includes(item.title) && item.category === 'TV Series'
+      );
+    }
     return data()?.filter(
       (item) => bookmarks.includes(item.title) && item.category === 'TV Series'
     );
