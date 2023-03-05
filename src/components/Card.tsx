@@ -1,5 +1,7 @@
 import { createSignal, Show } from 'solid-js';
 
+import useAuthState from '~/hooks/useAuthState';
+import useBookmarks from '~/hooks/useBookmarks';
 import BookmarkEmpty from '~/icons/BookmarkEmpty';
 import BookmarkFull from '~/icons/BookmarkFull';
 import CategoryMovie from '~/icons/CategoryMovie';
@@ -24,10 +26,27 @@ const Card = (props: CardProps) => {
 
   const [hovered, setHovered] = createSignal(false);
 
+  const authenticated = useAuthState();
+
   const toggleBookmark = createBookmarksStore((state) => state.toggleBookmark);
-  const bookmarks = createBookmarksStore((state) => state.bookmarks);
+  const localBookmarks = createBookmarksStore((state) => state.bookmarks);
 
   const Icon = category === 'Movie' ? CategoryMovie : CategoryTv;
+
+  const { addBookmark, removeBookmark, userBookmarks } = useBookmarks();
+
+  const isBookmarked = () => {
+    if (authenticated) return userBookmarks()?.includes(title);
+    return localBookmarks.includes(title);
+  };
+
+  const bookmarkOnClick = (title: string) => {
+    if (authenticated) {
+      return isBookmarked() ? removeBookmark(title) : addBookmark(title);
+    }
+
+    return toggleBookmark(title);
+  };
 
   return (
     <div
@@ -95,11 +114,11 @@ const Card = (props: CardProps) => {
       </div>
 
       <button
-        onClick={() => toggleBookmark(title)}
+        onClick={() => bookmarkOnClick(title)}
         class="absolute top-2 right-2 md:top-4 md:right-4"
       >
         <div class="bg-surface-main/50 w-8 h-8 rounded-full flex items-center justify-center">
-          {bookmarks.includes(title) ? <BookmarkFull /> : <BookmarkEmpty />}
+          {isBookmarked() ? <BookmarkFull /> : <BookmarkEmpty />}
         </div>
       </button>
     </div>
