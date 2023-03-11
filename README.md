@@ -1,34 +1,9 @@
-## Usage
+## Entertainment Web App - Frontend Mentor
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+This is a solution to the [Entertainment Web App](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X) provided by FrontendMentor.io, and built with the following tech stack and tools:
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+[![SolidJS](https://img.shields.io/badge/-solid-2C4F7C?style=for-the-badge&logo=solid&logoColor=fff)](https://start.solidjs.com/) [![TailwindCSS](https://img.shields.io/badge/-tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=fff)](https://tailwindcss.com/) [![Firebase](https://img.shields.io/badge/-firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=000)](https://firebase.google.com/)
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+# Live demo
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm dev` or `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+A live demo is available and deployed on [Vercel](https://frontendmentor-entertainment.vercel.app/).
