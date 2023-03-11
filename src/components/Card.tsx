@@ -60,6 +60,7 @@ const Card = (props: CardProps) => {
         <img
           class="rounded-lg"
           src={image}
+          alt={title}
           classList={{
             ['aspect-[4/2.5]']: !isTrending,
             ['aspect-[16/9]']: isTrending,
@@ -80,7 +81,6 @@ const Card = (props: CardProps) => {
         </div>
       </div>
       <div
-        id="info"
         class="flex mt-2 flex-col gap-0 text-gray-400 font-light"
         classList={{
           ['absolute bottom-4 left-4 md:bottom-6 md:left-6']: isTrending,
@@ -115,6 +115,7 @@ const Card = (props: CardProps) => {
 
       <button
         onClick={() => bookmarkOnClick(title)}
+        name="bookmark"
         class="absolute top-2 right-2 md:top-4 md:right-4"
       >
         <div class="bg-surface-main/50 w-8 h-8 rounded-full flex items-center justify-center">

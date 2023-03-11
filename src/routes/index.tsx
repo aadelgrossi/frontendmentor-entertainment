@@ -31,7 +31,7 @@ const Home = () => {
           size="lg"
           value={searchInput.query()}
           onInput={(e) => setQuery(e.currentTarget.value)}
-          icon={<img src={search} width="24px" height="24px" />}
+          icon={<img alt="search" src={search} width="24px" height="24px" />}
           placeholder="Search for Movies or TV Shows"
         />
       </span>

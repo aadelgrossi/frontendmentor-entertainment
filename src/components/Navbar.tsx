@@ -12,18 +12,22 @@ import AuthProfile from './AuthProfile';
 const navItems = [
   {
     href: '/',
+    label: 'home',
     Icon: NavHome,
   },
   {
     href: '/movies',
+    label: 'movies',
     Icon: NavMovies,
   },
   {
     href: '/tv',
+    label: 'tv',
     Icon: NavTv,
   },
   {
     href: '/bookmarks',
+    label: 'bookmarks',
     Icon: NavBookmark,
   },
 ];
@@ -45,8 +49,8 @@ const Navbar = () => {
           class="flex w-max items-center justify-center flex-row lg:flex-col gap-6 lg:gap-10"
         >
           <For each={navItems}>
-            {({ Icon, href }) => (
-              <A href={href}>
+            {({ Icon, href, label }) => (
+              <A href={href} aria-label={label}>
                 <Icon
                   class="w-5 h-5 cursor-pointer hover:[&>path]:fill-primary"
                   classList={{

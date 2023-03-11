@@ -21,7 +21,7 @@ const AuthProfile = () => {
       </Match>
 
       <Match when={!state.data && !state.loading}>
-        <A href="/login" class="mt-auto">
+        <A href="/login" aria-label="login" class="mt-auto">
           <BiSolidUserCircle size={40} class="fill-primary" />
         </A>
       </Match>
@@ -33,6 +33,7 @@ const AuthProfile = () => {
         >
           <img
             referrerpolicy="no-referrer"
+            alt="user"
             src={
               state.data?.photoURL ||
               `https://i.pravatar.cc/150?u=${state.data?.uid}`
