@@ -103,19 +103,19 @@ const Card = (props: CardProps) => {
 
           {rating}
         </span>
-        <h5
+        <h1
           class="text-text text-lg font-medium"
           classList={{
             ['lg:text-2xl']: isTrending,
           }}
         >
           {title}
-        </h5>
+        </h1>
       </div>
 
       <button
         onClick={() => bookmarkOnClick(title)}
-        name="bookmark"
+        aria-label="bookmark"
         class="absolute top-2 right-2 md:top-4 md:right-4"
       >
         <div class="bg-surface-main/50 w-8 h-8 rounded-full flex items-center justify-center">
