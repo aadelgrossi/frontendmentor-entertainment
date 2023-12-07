@@ -4525,10 +4525,10 @@ solid-transition-group@^0.0.10:
   resolved "https://registry.yarnpkg.com/solid-transition-group/-/solid-transition-group-0.0.10.tgz#774110616ac06c1054b7fd6e3c1bf1cf3e584558"
   integrity sha512-b3O9z6BUP60CG1WnTdqFuvHms0reDNYwQF+eAEEaSaoDEmiOu9+Lu7zQgWGySJjaAdSAClhmFCmx/eAjQgfIoA==
 
-solid-zustand@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/solid-zustand/-/solid-zustand-1.5.0.tgz#516dd1a9d1b1c96f9937c045903f439028ff5c0e"
-  integrity sha512-SkbYulMm1ASWAad8y7/o4ZAdL4JhK7TnaVk5y/N8PmnowVyGJDClILUfB9/pVBlzEb/oQkfvOH86VgHV4saA4w==
+solid-zustand@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/solid-zustand/-/solid-zustand-1.7.1.tgz#e933f5e09cd7a1e591b2776aae61dafc03b7358d"
+  integrity sha512-5XpeDKFJGzj6NfXlQkq2vdgqUwkVamrpxxoOrpFF5pNKIzBhoXJRGKGE1zSZ1xJw1/Ab7oHV9JJr4E6jg1kXkw==
 
 source-map-js@^1.0.2:
   version "1.0.2"
@@ -5065,9 +5065,9 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zustand@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.3.3.tgz#c9113499074dde2d6d99c1b5f591e9329572c224"
-  integrity sha512-x2jXq8S0kfLGNwGh87nhRfEc2eZy37tSatpSoSIN+O6HIaBhgQHSONV/F9VNrNcBcKQu/E80K1DeHDYQC/zCrQ==
+zustand@^4.4.7:
+  version "4.4.7"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.4.7.tgz#355406be6b11ab335f59a66d2cf9815e8f24038c"
+  integrity sha512-QFJWJMdlETcI69paJwhSMJz7PPWjVP8Sjhclxmxmxv/RYI7ZOvR5BHX+ktH0we9gTWQMxcne8q1OY8xxz604gw==
   dependencies:
     use-sync-external-store "1.2.0"
