@@ -57,11 +57,7 @@ const Home = () => {
       </Show>
 
       <Section title={sectionTitle()}>
-        <div
-          class="grid grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-4
-        md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] md:gap-5
-        lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))] lg:gap-10"
-        >
+        <div class="grid grid-cols-[repeat(auto-fill,minmax(180px,auto))] gap-5 md:grid-cols-[repeat(auto-fit,minmax(220px,auto))] lg:grid-cols-[repeat(auto-fill,minmax(260px,auto))]">
           <For each={query() ? all() : recommended()}>
             {(item) => (
               <Card

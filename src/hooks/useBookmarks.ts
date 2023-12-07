@@ -10,7 +10,7 @@ import {
   where,
 } from 'firebase/firestore';
 import { useAuth, useFirebaseApp } from 'solid-firebase';
-import { createResource } from 'solid-js';
+import { createResource, createSignal } from 'solid-js';
 
 const useBookmarks = () => {
   const app = useFirebaseApp();
@@ -20,16 +20,17 @@ const useBookmarks = () => {
 
   const bookmarksRef = collection(db, 'bookmarks');
 
-  const [userBookmarks, { refetch }] = createResource(userId, async () => {
+  const [bookmarks, setBookmarks] = createSignal<string[]>([]);
+
+  const [_, { refetch }] = createResource(userId, async () => {
     if (!userId) return [];
 
     const bookmarkQuery = query(bookmarksRef, where('userId', '==', userId));
 
     const results = (await getDocs(bookmarkQuery)).docs.map((item) =>
       item.get('title')
-    );
-
-    return results;
+    ) as string[];
+    setBookmarks(results);
   });
 
   const addBookmark = async (title: string) => {
@@ -38,7 +39,7 @@ const useBookmarks = () => {
     await setDoc(doc(bookmarksRef), {
       userId,
       title,
-    }).then(() => refetch());
+    }).then(refetch);
   };
 
   const removeBookmark = async (title: string) => {
@@ -55,7 +56,7 @@ const useBookmarks = () => {
     await deleteDoc(documentRef).then(() => refetch());
   };
 
-  return { addBookmark, removeBookmark, userBookmarks };
+  return { addBookmark, removeBookmark, bookmarks };
 };
 
 export default useBookmarks;

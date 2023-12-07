@@ -18,20 +18,19 @@ const Bookmarks = () => {
 
   const authenticated = useAuthState();
 
-  const bookmarks = createBookmarksStore((state) => state.bookmarks);
-  const { userBookmarks } = useBookmarks();
+  const localBookmarks = createBookmarksStore((state) => state.bookmarks);
+  const { bookmarks } = useBookmarks();
 
   const [data] = createResource(query, () => getData(query()));
 
   const movies = () => {
     if (authenticated) {
       return data()?.filter(
-        (item) =>
-          userBookmarks()?.includes(item.title) && item.category === 'Movie'
+        (item) => bookmarks()?.includes(item.title) && item.category === 'Movie'
       );
     }
     return data()?.filter(
-      (item) => bookmarks.includes(item.title) && item.category === 'Movie'
+      (item) => localBookmarks.includes(item.title) && item.category === 'Movie'
     );
   };
 
@@ -39,11 +38,12 @@ const Bookmarks = () => {
     if (authenticated) {
       return data()?.filter(
         (item) =>
-          userBookmarks()?.includes(item.title) && item.category === 'TV Series'
+          bookmarks()?.includes(item.title) && item.category === 'TV Series'
       );
     }
     return data()?.filter(
-      (item) => bookmarks.includes(item.title) && item.category === 'TV Series'
+      (item) =>
+        localBookmarks.includes(item.title) && item.category === 'TV Series'
     );
   };
 

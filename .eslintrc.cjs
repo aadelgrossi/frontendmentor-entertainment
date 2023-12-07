@@ -66,7 +66,13 @@ module.exports = {
       },
     ],
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        varsIgnorePattern: '_',
+        argsIgnorePattern: '_',
+      },
+    ],
     'no-prototype-builtins': 'warn',
     'no-console': 1,
     'prefer-template': 'error',

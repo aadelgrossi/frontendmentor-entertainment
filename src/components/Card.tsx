@@ -33,10 +33,10 @@ const Card = (props: CardProps) => {
 
   const Icon = category === 'Movie' ? CategoryMovie : CategoryTv;
 
-  const { addBookmark, removeBookmark, userBookmarks } = useBookmarks();
+  const { addBookmark, removeBookmark, bookmarks } = useBookmarks();
 
   const isBookmarked = () => {
-    if (authenticated) return userBookmarks()?.includes(title);
+    if (authenticated) return bookmarks()?.includes(title);
     return localBookmarks.includes(title);
   };
 
@@ -53,7 +53,7 @@ const Card = (props: CardProps) => {
       class="flex flex-col relative"
       classList={{
         ['min-w-[164px] md:min-w-[220px] lg:max-w-[280px]']: !isTrending,
-        ['min-w-[240px] md:min-w-[470px]']: isTrending,
+        ['min-w-[320px] md:min-w-[470px]']: isTrending,
       }}
     >
       <div class="relative">
@@ -63,7 +63,7 @@ const Card = (props: CardProps) => {
           alt={title}
           classList={{
             ['aspect-[4/2.5]']: !isTrending,
-            ['aspect-[16/9]']: isTrending,
+            ['aspect-[16/8.5]']: isTrending,
           }}
         />
         <Show when={isTrending}>
